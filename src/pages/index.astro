@@ -59,18 +59,4 @@ const sortedJobs = sortJobsByDate(jobs);
       </Container>
     )
   }
-  {
-    sortedJobs.length > 0 && (
-      <Container as='section' class='py-6'>
-        <div class="flex flex-col gap-5">
-          <span class="text-headings">Work Experience</span>
-          <ul class="flex flex-col gap-8">
-            {sortedJobs.map((job) => (
-              <WorkExperience entry={job} />
-            ))}
-          </ul>
-        </div>
-      </Container>
-    )
-  }
 </BaseLayout>
