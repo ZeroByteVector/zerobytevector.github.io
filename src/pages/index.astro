@@ -12,8 +12,7 @@ const entry = await getEntry('pages', 'homepage');
 const { Content } = await render(entry);
 
 const links = await getCollection('links');
-const jobs = await getCollection('jobs');
-const sortedJobs = sortJobsByDate(jobs);
+
 ---
 
 <BaseLayout seo={entry.data.seo}>
