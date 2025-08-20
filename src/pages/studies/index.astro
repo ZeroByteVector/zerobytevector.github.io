@@ -8,9 +8,9 @@ import WorkExperience from '@/components/ui/WorkExperience.astro';
 import PostPreview from '@/components/ui/PostPreview.astro';
 import { sortJobsByDate } from '@/lib/utils';
 
-const entry = await getEntry('pages', 'work');
-const jobs = await getCollection('jobs');
-const sortedJobs = sortJobsByDate(jobs);
+const entry = await getEntry('pages', 'studies');
+const studies = await getCollection('studies');
+const sortedStudies = sortJobsByDate(studies);
 ---
 
 <BaseLayout seo={entry.data.seo}>
@@ -21,9 +21,9 @@ const sortedJobs = sortJobsByDate(jobs);
     sortedJobs.length > 0 && (
       <Container as='section' class='py-6'>
         <div class="flex flex-col gap-5">
-          <span class="text-headings">Work Experience</span>
+          <span class="text-headings">Studies</span>
           <ul class="flex flex-col gap-8">
-            {sortedJobs.map((job) => (
+            {sortedStudies.map((job) => (
               <WorkExperience entry={job} />
             ))}
           </ul>
