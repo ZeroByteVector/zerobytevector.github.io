@@ -5,6 +5,7 @@ const pathname = Astro.url.pathname;
 
 const isAboutMePage = pathname === '/';
 const isWorkPage = pathname.startsWith('/work');
+const isStudiesPage = pathname.startsWith('/studies');
 const isProjectsPage = pathname.startsWith('/projects');
 
 ---
@@ -28,12 +29,20 @@ const isProjectsPage = pathname.startsWith('/projects');
           ]}>Work Experience</a>
         </li>
         <li>
+          <a href="/studies" class:list={[
+            'font-medium transition-colors block px-5 py-2',
+            'hover:text-headings',
+            isStudiesPage && 'text-headings bg-muted-foreground/40 rounded-full',
+          ]}>Studies</a>
+        </li>
+        <li>
           <a href="/projects" class:list={[
             'font-medium transition-colors block px-5 py-2',
             'hover:text-headings',
             isProjectsPage && 'text-headings bg-muted-foreground/40 rounded-full',
           ]}>Projects</a>
         </li>
+        
       </ul>
     </nav>
   </div>
