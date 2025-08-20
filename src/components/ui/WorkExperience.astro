@@ -9,39 +9,10 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 ---
 
-function formatMonthYear(year: number, month: number) {
-  return new Date(year, month - 1).toLocaleDateString('en-EN', {
-    month: 'long',
-    year: 'numeric',
-  });
-}
-
-function getDuration(from: string, to: string) {
-  if (!from) return '';
-  const start = new Date(from);
-  const end = to ? new Date(to) : new Date();
-
-  const months =
-    (end.getFullYear() - start.getFullYear()) * 12 +
-    (end.getMonth() - start.getMonth());
-
-  const years = Math.floor(months / 12);
-  const remainingMonths = months % 12;
-
-  let parts: string[] = [];
-  if (years > 0) parts.push(`${years} year${years > 1 ? 's' : ''}`);
-  if (remainingMonths > 0) parts.push(`${remainingMonths} month${remainingMonths > 1 ? 'en' : ''}`);
-
-  return parts.join(' y ');
-}
-
 <li class="py-0.5">
   <div class="flex gap-5">
     <div class="relative min-w-28 shrink-0">
-      <span class="text-muted-foreground text-sm">
-        {formatDate(entry.data.from)} - {formatDate(entry.data.to)} 
-        ({getDuration(entry.data.from, entry.data.to)})
-      </span>
+      <span class="text-muted-foreground text-sm">{entry.data.from} - {entry.data.to}</span>
     </div>
     <div class="flex flex-col gap-3">
       <div class="flex flex-col">
