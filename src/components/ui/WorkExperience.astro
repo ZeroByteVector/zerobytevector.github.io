@@ -9,11 +9,10 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 ---
 
-function formatDate(date: string) {
-  if (!date) return 'Now';
-  return new Date(date).toLocaleDateString('en-EN', {
-    month: 'long', // "january"
-    year: 'date', // "2021-01-01"
+function formatMonthYear(year: number, month: number) {
+  return new Date(year, month - 1).toLocaleDateString('en-EN', {
+    month: 'long',
+    year: 'numeric',
   });
 }
 
