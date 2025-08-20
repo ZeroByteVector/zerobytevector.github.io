@@ -13,7 +13,7 @@ function formatDate(date: string) {
   if (!date) return 'Now';
   return new Date(date).toLocaleDateString('en-EN', {
     month: 'long', // "january"
-    year: 'numeric', // "2021"
+    year: 'date', // "2021-01-01"
   });
 }
 
