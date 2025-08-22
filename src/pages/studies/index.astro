@@ -9,7 +9,6 @@ import PostPreview from '@/components/ui/PostPreview.astro';
 
 const entry = await getEntry('pages', 'studies');
 const studies = await getCollection('studies');
-const sortedStudies = sortStudiesByDate(studies);
 ---
 
 <BaseLayout seo={entry.data.seo}>
