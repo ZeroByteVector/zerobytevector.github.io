@@ -52,7 +52,7 @@ const studiesCollection = defineCollection({
   loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/studies' }),
   schema: z.object({
     title: z.string(),
-    company: z.string(),
+    school: z.string(),
     location: z.string(),
     from: z.number(),
     to: z.number().or(z.enum(['Now'])),
