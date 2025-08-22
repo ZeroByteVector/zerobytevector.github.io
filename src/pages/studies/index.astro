@@ -16,15 +16,13 @@ const studies = await getCollection('studies');
     <Author {...DEFAULT_CONFIGURATION.author} />
   </Container>
   {
-    sortedJobs.length > 0 && (
-      <Container as='section' class='py-6'>
-        <div class="flex flex-col gap-5">
-          <span class="text-headings">Studies</span>
-          <ul class="flex flex-col gap-8">
-            <MyStudies entry={job} />
-          </ul>
-        </div>
-      </Container>
-    )
+    <Container as='section' class='py-6'>
+      <div class="flex flex-col gap-5">
+        <span class="text-headings">Studies</span>
+        <ul class="flex flex-col gap-8">
+          <MyStudies entry={job} />
+        </ul>
+      </div>
+    </Container>
   }
 </BaseLayout>
