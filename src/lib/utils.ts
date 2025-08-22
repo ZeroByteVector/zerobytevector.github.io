@@ -34,3 +34,15 @@ export const sortJobsByDate = (jobs: CollectionEntry<'jobs'>[]) => {
     return nextEnd - currentEnd || next.data.from - current.data.from;
   });
 };
+
+export const sortStudiesByDate = (job: CollectionEntry<'studies'>[]) => {
+  // Convert "Now" to current year, otherwise returns the year as is
+  const getEndYear = (job: CollectionEntry<'studies'>) =>
+    job.data.to === 'Now' ? new Date().getFullYear() : job.data.to;
+
+  return studies.sort((current, next) => {
+    // Compare end years first, then fall back to start years if end years are equal
+    const [currentEnd, nextEnd] = [getEndYear(current), getEndYear(next)];
+    return nextEnd - currentEnd || next.data.from - current.data.from;
+  });
+};
