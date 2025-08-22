@@ -48,6 +48,18 @@ const jobCollection = defineCollection({
   }),
 });
 
+const studiesCollection = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/studies' }),
+  schema: z.object({
+    title: z.string(),
+    company: z.string(),
+    location: z.string(),
+    from: z.number(),
+    to: z.number().or(z.enum(['Now'])),
+    url: z.string(),
+  }),
+});
+
 const talkCollection = defineCollection({
   loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/talks' }),
   schema: z.object({
@@ -73,6 +85,7 @@ export const collections = {
   pages: pageCollection,
   links: linkCollection,
   jobs: jobCollection,
+  studies: studiesCollection,
   talks: talkCollection,
   posts: postCollection,
 };
